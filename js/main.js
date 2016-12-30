@@ -11,7 +11,7 @@ var circles = [],
     maxSize = 5,                                       // the maximum size of the circles in px
     numCircles = 180,                                   // the number of circles
     minSpeed = -1,                                     // the minimum speed, recommended: -maxspeed
-    maxSpeed = 1,                                    // the maximum speed of the circles
+    maxSpeed = 5,                                    // the maximum speed of the circles
     expandState = true,                                      // the direction of expansion
     mousePos = { x: 0, y: 0 };
 
@@ -27,9 +27,9 @@ function buildArray() {
     'use strict';
 
     for (var i =0; i < numCircles ; i++){
-        var color = Math.floor(Math.random() * (colors.length - 1 + 1)) + 1,
-            left = Math.floor(Math.random() * (canvas.width - 0 + 1)) + 0,
-            top = Math.floor(Math.random() * (canvas.height - 0 + 1)) + 0,
+        var color = Math.floor(Math.random() * (colors.length)) + 1,
+            left = Math.floor(Math.random() * (canvas.width + 1)),
+            top = Math.floor(Math.random() * (canvas.height + 1)),
             size = Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize,
             leftSpeed = (Math.floor(Math.random() * (maxSpeed - minSpeed + 1)) + minSpeed)/10,
             topSpeed = (Math.floor(Math.random() * (maxSpeed - minSpeed + 1)) + minSpeed)/10,
@@ -55,8 +55,7 @@ function build(){
         var curCircle = circles[h];
         context.fillStyle = colors[curCircle.color-1];
         context.beginPath();
-
-        var d = Math.sqrt( (mousePos.x-curCircle.left)*(mousePos.x-curCircle.left) + (mousePos.y-curCircle.top)*(mousePos.y-curCircle.top) );
+        let d = Math.hypot(mousePos.x-curCircle.left, mousePos.y-curCircle.top);
         curCircle.size = d < 60 ? (60-d)/3 : curCircle.defaultSize;
         if(curCircle.left > canvas.width+curCircle.size){
             curCircle.left = 0-curCircle.size;
