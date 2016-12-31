@@ -8,12 +8,50 @@ var circles = [],
         'rgba(189, 195, 199,' + opacity + ')'
     ],
     minSize = 2,                                        // the minimum size of the circles in px
-    maxSize = 5,                                       // the maximum size of the circles in px
-    numCircles = 180,                                   // the number of circles
+    maxSize = 4,                                       // the maximum size of the circles in px
+    numCircles = 30,                                   // the number of circles
     minSpeed = -1,                                     // the minimum speed, recommended: -maxspeed
     maxSpeed = 5,                                    // the maximum speed of the circles
     expandState = true,                                      // the direction of expansion
     mousePos = { x: 0, y: 0 };
+
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+
+    lastScrollTop = st;
+}
 
 canvas.onmousemove = function(e) {
     var rect = canvas.getBoundingClientRect();
@@ -56,7 +94,7 @@ function build(){
         context.fillStyle = colors[curCircle.color-1];
         context.beginPath();
         let d = Math.hypot(mousePos.x-curCircle.left, mousePos.y-curCircle.top);
-        curCircle.size = d < 60 ? (60-d)/3 : curCircle.defaultSize;
+        curCircle.size = d < 60 ? (60-d)/15*curCircle.defaultSize > curCircle.defaultSize ? (60-d)/15*curCircle.defaultSize : curCircle.defaultSize: curCircle.defaultSize;
         if(curCircle.left > canvas.width+curCircle.size){
             curCircle.left = 0-curCircle.size;
             context.arc(curCircle.left, curCircle.top, curCircle.size, 0, 2 * Math.PI, false);
