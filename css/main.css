@@ -10,8 +10,16 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html {
-    color: #222;
+    font-family: "DejaVu Sans Light";
+    height: 100%;
+    min-height: 100% !important;
     font-size: 1em;
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
@@ -102,50 +110,116 @@ body {
     height: 100%;
     padding: 0px;
     margin: 0px;
-    padding-top: 40px; // same as header height
+    padding-top: 0px; // same as header height
 }
 
 .nav-up {
     top: -50px; // same as header height. use variables in LESS/SASS
 }
 
-#welcome-content {
+#welcome {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#canvas-content {
+    height: 100%;
+    width: 100%;
+}
+
+div.section {
+    display: inline-block;
+    overflow: auto;
+    width: 100%;
+}
+
+canvas {
+    background-color: whitesmoke;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+#overlay {
     position: absolute;
-    top: 40%;
+    top: 50%;
+    left: 50%;
+    max-width: 450px;
+    transform: translate(-50%, -50%);
     text-align: center;
+    color: #30588e;
+}
+
+.section-container {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+a.contact-link {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.contact-link:hover {
+    text-decoration: underline;
+}
+
+.section-content {
+    display: inline-block;
+    text-align: center;
+    color: white;
+    max-width: 60%;
+}
+
+.inverted {
+    color: #30588e;
+}
+
+.section {
+    opacity: .8;
+    width: 100%;
+    background-color: transparent;
+    position: relative;
 }
 
 header {
-    background: #f5b335;
+    opacity: .5;
     height: 40px;
     position: fixed;
     top: 0;
     transition: top 0.2s ease-in-out;
     width: 100%;
-}
-
-#content h1 {
-    text-align: center;
-    color: #E6E0CB;
-    font-size: 100px;
+    z-index: 10;
 }
 
 .header {
+    opacity: .8;
     width: 100%;
     height: 50px;
     background-color: #999999;
 }
 
-.test {
-    height: 400px;
+.content {
+    height: 100% !important;
     width: 100%;
-    background-color: #b3d4fc;
+    position: relative;
 }
 
-.test2 {
-    height: 400px;
-    width: 100%;
-    background-color: #555555;
+.primary {
+    background-color: #30588e;
+}
+
+.secondary {
+    background-color: whitesmoke;
+}
+
+.front {
+    z-index: auto;
 }
 
 .round-button {
@@ -183,7 +257,6 @@ header {
 
     text-align:center;
     color:lightsalmon;
-    font-family: "DejaVu Sans Light";
     font-size:1em;
     font-weight:bold;
     text-decoration:none;
@@ -197,14 +270,125 @@ header {
     padding-top: 0.5em;
 }
 
-canvas {
-    background-color: whitesmoke;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-1;
+ul.nav {
+    list-style-type: none;
+    top: 0px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav-link {
+    float: right;
+    padding: 14px 16px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    /* ...and now for the proper property */
+    transition:.5s;
+}
+
+.nav-link:hover:not(.active) {
+    background-color: #30588e;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+    background: #999999;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #30588e;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px #30588e;
+}
+
+::-webkit-scrollbar-corner {
+    background: #999999;
+}
+
+ul.project-grid {
+    z-index: auto;
+    margin: 0px;
+    padding: 0px;
+}
+
+li.project {
+    min-width: 250px;
+    margin: 0px;
+    padding: 0px;
+    width: 25%;
+    height: 200px;
+    display: inline-block;
+    color: whitesmoke;
+}
+
+li.skill {
+    margin: 0px;
+    padding: 0px;
+    width: 25%;
+    height: 200px;
+    display: inline-block;
+    color: #30588e;
+}
+
+.logo {
+    position: relative;
+    vertical-align: center;
+}
+
+li.metronet {
+    background:url("/portfolio/img/metronet.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+li.twitter {
+    background:url("/portfolio/img/twitter.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+li.lookbook {
+    background:url("/portfolio/img/lookbook.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+li.bullhorn {
+    background:url("/portfolio/img/bullhorn.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.ghost-button {
+    display: inline-block;
+    width: 200px;
+    border-radius: 20px;
+    padding: 8px;
+    color: #30588e;
+    border: 1px solid #30588e;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
 }
 
 

@@ -31,6 +31,55 @@ setInterval(function() {
     }
 }, 250);
 
+Function.prototype.throttle = function (milliseconds) {
+    var baseFunction = this,
+        lastEventTimestamp = null,
+        limit = milliseconds;
+
+    return function () {
+        var self = this,
+            args = arguments,
+            now = Date.now();
+
+        if (!lastEventTimestamp || now - lastEventTimestamp >= limit) {
+            lastEventTimestamp = now;
+            baseFunction.apply(self, args);
+        }
+    };
+};
+
+function scrollToSkills() {
+    $("#skills").ready(function(){
+         $("html, body").delay(50).animate({
+             scrollTop: $('#skills').offset().top
+         }, 1000);
+    });
+}
+
+function scrollToAbout() {
+    $("#about").ready(function(){
+        $("html, body").delay(50).animate({
+            scrollTop: $('#about').offset().top
+        }, 1000);
+    });
+}
+
+function scrollToContact() {
+    $("#contact").ready(function(){
+        $("html, body").delay(50).animate({
+            scrollTop: $('#contact').offset().top
+        }, 1000);
+    });
+}
+
+function scrollToProjects() {
+    $("#projects").ready(function(){
+        $("html, body").delay(50).animate({
+            scrollTop: $('#projects').offset().top
+        }, 1000);
+    });
+}
+
 function hasScrolled() {
     var st = $(this).scrollTop();
 
@@ -53,7 +102,11 @@ function hasScrolled() {
     lastScrollTop = st;
 }
 
-canvas.onmousemove = function(e) {
+$(document).bind('mousemove', function(e) {
+    updateMousePos(e);
+}.throttle(25));
+
+function updateMousePos(e) {
     var rect = canvas.getBoundingClientRect();
     mousePos = {
         x: e.clientX - rect.left,
@@ -183,7 +236,6 @@ window.onload = function () {
 
 window.onresize = function () {
     'use strict';
-    console.log("resize");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     //buildArray();
