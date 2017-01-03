@@ -5,7 +5,8 @@ var circles = [],
     // SETTINGS
     opacity = 0.6,                                      // the opacity of the circles 0 to 1
     colors = ['rgba(34, 49, 63,' + opacity + ')',       // an array of rgb colors for the circles
-        'rgba(189, 195, 199,' + opacity + ')'
+        'rgba(189, 195, 199,' + opacity + ')',
+        '#30588e'
     ],
     minSize = 2,                                        // the minimum size of the circles in px
     maxSize = 4,                                       // the maximum size of the circles in px
@@ -25,11 +26,11 @@ $(window).scroll(function(event){
 });
 
 $('li.project').mouseenter(function() {
-    $(this).find('.project-info').show();
+    $(this).find('.project-info').slideToggle(400);
 });
 
 $('li.project').mouseleave(function() {
-    $(this).find('.project-info').hide();
+    $(this).find('.project-info').slideToggle(400);
 });
 
 setInterval(function() {

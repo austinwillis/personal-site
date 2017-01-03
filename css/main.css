@@ -188,13 +188,13 @@ a.contact-link:hover {
 }
 
 header {
+    z-index: 2;
     opacity: .5;
     height: 40px;
     position: fixed;
     top: 0;
     transition: top 0.2s ease-in-out;
     width: 100%;
-    z-index: 10;
 }
 
 .header {
@@ -270,6 +270,15 @@ header {
     padding-top: 0.5em;
 }
 
+.image {
+    max-width: 90%;
+    height: auto;
+}
+
+.small {
+    max-width: 50%;
+}
+
 ul.nav {
     list-style-type: none;
     top: 0px;
@@ -325,19 +334,78 @@ li a {
 }
 
 ul.project-grid {
-    z-index: auto;
-    margin: 0px;
-    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.project-grid li{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.project-grid li{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.project {
+    background-color: #30588e;
+}
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+
+    .project-grid li{
+        width: 50%;
+    }
+}
+
+li.metronet {
+    background:url("/portfolio/img/metronet.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+li.bullhorn {
+    background:url("/portfolio/img/bullhorn.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+li.lookbook {
+    background:url("/portfolio/img/lookbook.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+li.maps {
+    background:url("/portfolio/img/maps.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 li.project {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    min-height: 250px;
     min-width: 250px;
-    margin: 0px;
-    padding: 0px;
     width: 25%;
-    height: 200px;
-    display: inline-block;
-    color: whitesmoke;
+}
+
+.project-info {
+    color: white;
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #30588e;
+}
+
+.box {
+    display:table-cell;
+    vertical-align:middle;
+    width: 100%;
+    height: 100%;
 }
 
 li.skill {
@@ -352,47 +420,6 @@ li.skill {
 .logo {
     position: relative;
     vertical-align: center;
-}
-
-li.metronet {
-    background:url("/portfolio/img/metronet.png");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.project-info {
-    height: 300px;
-    display: none;
-    background-color: #30588e;
-    opacity: 1;
-}
-
-#metronet-info:hover{
-    opacity: 1;
-    transition: opacity 0.5s ease-in; /* vendorless fallback */
-    -o-transition: opacity 0.5s ease-in; /* opera */
-    -ms-transition: opacity 0.5s ease-in; /* IE 10 betas, not needed in final build. */
-    -moz-transition: opacity  0.5s ease-in; /* Firefox */
-    -webkit-transition: opacity 0.5s ease-in; /*safari and chrome */
-}​
-
-li.twitter {
-    background:url("/portfolio/img/twitter.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-li.lookbook {
-    background:url("/portfolio/img/lookbook.png");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-li.bullhorn {
-    background:url("/portfolio/img/bullhorn.png");
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .ghost-button {
