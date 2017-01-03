@@ -24,6 +24,14 @@ $(window).scroll(function(event){
     didScroll = true;
 });
 
+$('li.project').mouseenter(function() {
+    $(this).find('.project-info').show();
+});
+
+$('li.project').mouseleave(function() {
+    $(this).find('.project-info').hide();
+});
+
 setInterval(function() {
     if (didScroll) {
         hasScrolled();
