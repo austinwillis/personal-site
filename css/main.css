@@ -392,6 +392,10 @@ li.project {
     width: 25%;
 }
 
+li.project:hover div.project-info {
+    display: block;
+}
+
 .project-info {
     color: white;
     display: none;

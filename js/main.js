@@ -25,13 +25,13 @@ $(window).scroll(function(event){
     didScroll = true;
 });
 
-$('li.project').mouseenter(function() {
-    $(this).find('.project-info').slideToggle(400);
-});
-
-$('li.project').mouseleave(function() {
-    $(this).find('.project-info').slideToggle(400);
-});
+// $('li.project').mouseenter(function() {
+//     $(this).find('.project-info').slideToggle(400);
+// });
+//
+// $('li.project').mouseleave(function() {
+//     $(this).find('.project-info').slideToggle(400);
+// });
 
 setInterval(function() {
     if (didScroll) {
