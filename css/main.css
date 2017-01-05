@@ -374,16 +374,10 @@ ul.project-grid {
     list-style-type: none;
 }
 
-.project-grid li{
-    display: inline-block;
-    list-style-type: none;
-}
-
 .project {
     background-color: #30588e;
 }
 @media only screen and (max-width: 1024px) and (min-width: 768px) {
-
     .project-grid li{
         width: 50%;
     }
