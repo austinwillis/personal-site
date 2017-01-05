@@ -119,7 +119,7 @@ body {
         rgba(48, 88, 142, .8),
         rgba(48, 88, 142, .8)
     ),
-    url("/portfolio/img/mountain.jpeg");
+    url("/img/mountain.jpeg");
 }
 
 #contact {
@@ -128,7 +128,7 @@ body {
         rgba(48, 88, 142, .5),
         rgba(48, 88, 142, .5)
     ),
-    url("/portfolio/img/road.jpeg");
+    url("/img/road.jpeg");
 }
 
 #project-list {
@@ -384,25 +384,25 @@ ul.project-grid {
 }
 
 li.metronet {
-    background:url("/portfolio/img/metronet.png");
+    background:url("/img/metronet.png");
     background-repeat: no-repeat;
     background-position: center;
 }
 
 li.bullhorn {
-    background:url("/portfolio/img/bullhorn.png");
+    background:url("/img/bullhorn.png");
     background-repeat: no-repeat;
     background-position: center;
 }
 
 li.lookbook {
-    background:url("/portfolio/img/lookbook.png");
+    background:url("/img/lookbook.png");
     background-repeat: no-repeat;
     background-position: center;
 }
 
 li.maps {
-    background:url("/portfolio/img/maps.png");
+    background:url("/img/maps.png");
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
