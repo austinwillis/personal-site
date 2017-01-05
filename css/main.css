@@ -147,7 +147,7 @@ canvas {
     position: absolute;
     top: 50%;
     left: 50%;
-    max-width: 450px;
+    max-width: 500px;
     transform: translate(-50%, -50%);
     text-align: center;
     color: #30588e;
@@ -173,7 +173,7 @@ a.contact-link:hover {
     display: inline-block;
     text-align: center;
     color: white;
-    max-width: 60%;
+    max-width: 500px;
 }
 
 .inverted {
@@ -181,7 +181,7 @@ a.contact-link:hover {
 }
 
 .section {
-    opacity: .8;
+    opacity: 1;
     width: 100%;
     background-color: transparent;
     position: relative;
