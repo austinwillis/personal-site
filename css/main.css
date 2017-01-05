@@ -131,6 +131,10 @@ body {
     url("/portfolio/img/road.jpeg");
 }
 
+#project-list {
+    background-color: #516788;
+}
+
 .layer {
     background-color: #30588e;
     position: absolute;
@@ -351,9 +355,9 @@ li a {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #30588e;
+    background: #516788;
     -webkit-border-radius: 1ex;
-    -webkit-box-shadow: 0px 1px 2px #30588e;
+    -webkit-box-shadow: 0px 1px 2px #516788;
 }
 
 ::-webkit-scrollbar-corner {
