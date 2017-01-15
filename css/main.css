@@ -403,6 +403,7 @@ li.lookbook {
 
 li.github {
     background:url("/img/github.png");
+    background-size: 225%;
     background-repeat: no-repeat;
     background-position: center;
 }
