@@ -123,12 +123,7 @@ body {
 }
 
 #contact {
-    background:
-    linear-gradient(
-        rgba(48, 88, 142, .5),
-        rgba(48, 88, 142, .5)
-    ),
-    url("/img/road.jpeg");
+    background: #516788;
 }
 
 #project-list {
