@@ -130,6 +130,10 @@ body {
     background-color: #516788;
 }
 
+#skills, #projects {
+    background: rgba(255, 255, 255, 0);
+}
+
 .layer {
     background-color: #30588e;
     position: absolute;
