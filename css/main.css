@@ -191,7 +191,6 @@ canvas {
 
 a.contact-link {
     color: inherit;
-    text-decoration: none;
     font-weight: bold;
 }
 
@@ -347,7 +346,25 @@ li a {
     background-color: #4CAF50;
 }
 
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.headshot {
+    border-radius: 50%;
+    height: 210px;
+    width: 230px;
+    margin-right: 60px;
+}
+
+.blogLink {
+    color: white;
+}
+
 ul.project-grid {
+    min-height: 300px;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -467,6 +484,12 @@ li.skill {
     text-align: center;
     outline: none;
     text-decoration: none;
+    transition: .3s;
+}
+
+.ghost-button:hover {
+    background-color: #30588e;
+    color: white;
 }
 
 
@@ -480,6 +503,10 @@ li.skill {
 
 .hidden {
     display: none !important;
+}
+
+#about a {
+    color: white;
 }
 
 /*
